@@ -8,6 +8,7 @@ mongoose.set('strictQuery', true);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// connect to mongoDB
 mongoose.connect('mongodb://localhost:27017/FullstackDB')
     .then(() => {
         console.log('Connected to DB!');
@@ -32,7 +33,7 @@ app.post('/api/createUser', async (req, res) => {
     })
 })
 
-
+// Start server
 app.listen(5000, () => {
     console.log('Server started on port 5000');
 })

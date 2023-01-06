@@ -34,6 +34,7 @@ const App = () => {
     note = event.target.value;
   }
 
+  // Main page
   return (
     <div className='container'>
       <h1>Sending / receiving from server</h1>
