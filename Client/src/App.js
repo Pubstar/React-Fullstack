@@ -35,6 +35,7 @@ const App = () => {
   }
 
   // Main page
+  // TODO make something relevant instead of fake users
   return (
     <div className='container'>
       <h1>Sending / receiving from server</h1>
