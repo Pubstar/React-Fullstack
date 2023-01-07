@@ -1,0 +1,17 @@
+a {
+    color: #FFC857;
+    font-size: 22px;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+.navbar-container {
+    height: 75px;
+    padding-inline: 75px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    background-color: #084C61;
+}
