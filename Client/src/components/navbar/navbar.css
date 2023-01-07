@@ -5,13 +5,29 @@ a {
     letter-spacing: 4px;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 .navbar-container {
     height: 75px;
-    padding-inline: 75px;
+    padding-inline: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     background-color: #084C61;
+}
+
+.login-container,
+.links-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-container img {
+    width: 50px;
 }
