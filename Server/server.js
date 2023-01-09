@@ -37,6 +37,7 @@ app.post('/api/login', async (req, res) => {
 
 app.post('/api/createUser', async (req, res) => {
     const { username, password } = req.body;
+    if (await User.findOne({ username })) return;
     const user = new User({ username, password: await bcrypt.hash(password, 10) });
     user.save((err) => {
         if (err) return console.log(err);
