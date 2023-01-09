@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+label {
+    color: #FFC857;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}

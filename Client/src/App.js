@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 //components
 import Navbar from './components/navbar/Navbar';
 import Homepage from './components/homepage/Homepage';
+import Register from './components/register/Register';
+import Login from './components/login/Login';
 
 const App = () => {
   // Main page
@@ -14,6 +16,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   )

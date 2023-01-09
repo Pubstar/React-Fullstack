@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css';
 import ReactLogo from '../../images/react-logo.png';
 
@@ -7,11 +8,11 @@ const navbar = () => {
         <div className='navbar-container'>
             <div className='links-container'>
                 <img src={ReactLogo} alt="" />
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
             </div>
             <div className="login-container">
-                <a href="/">Login</a>
-                <a href="/">Register</a>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
             </div>
         </div>
     )

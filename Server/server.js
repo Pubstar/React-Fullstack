@@ -24,9 +24,15 @@ app.get('/api/getUsers', async (req, res) => {
     res.send(users);
 })
 
+app.post('/api/login', async (req, res) => {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username, password });
+    res.send(user);
+})
+
 app.post('/api/createUser', async (req, res) => {
-    const { name, note } = req.body;
-    const user = new User({ user: name, note });
+    const { username, password } = req.body;
+    const user = new User({ username, password });
     user.save((err) => {
         if (err) return console.log(err);
         console.log('User saved to DB!');
