@@ -31,3 +31,9 @@ a:hover {
 .navbar-container img {
     width: 50px;
 }
+
+@media (max-width: 600px) {
+    .navbar-container {
+        padding-inline: 50px;
+    }
+}
