@@ -1,6 +1,7 @@
 const express = require('express');
 app = express();
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const userSchema = require('./UserSchema');
 mongoose.set('strictQuery', true);
@@ -26,13 +27,17 @@ app.get('/api/getUsers', async (req, res) => {
 
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
-    const user = await User.findOne({ username, password });
-    res.send(user);
+    const foundUser = await User.findOne({ username });
+    if (foundUser) {
+        if (await bcrypt.compare(password, foundUser.password)) {
+            res.send(foundUser);
+        }
+    }
 })
 
 app.post('/api/createUser', async (req, res) => {
     const { username, password } = req.body;
-    const user = new User({ username, password });
+    const user = new User({ username, password: await bcrypt.hash(password, 10) });
     user.save((err) => {
         if (err) return console.log(err);
         console.log('User saved to DB!');

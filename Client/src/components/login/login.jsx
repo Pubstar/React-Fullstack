@@ -15,7 +15,7 @@ const Login = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         }).then(response => response.json().then(res => {
-            if (res && res.username) {
+            if (res.username) {
                 console.log('login..')
                 navigate('/');
             }
