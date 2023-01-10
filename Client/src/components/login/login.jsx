@@ -17,7 +17,6 @@ const Login = ({ setCurrentUser, currentUser }) => {
         }).then(response => response.json().then(res => {
             if (res.username) {
                 setCurrentUser(res);
-                console.log(currentUser);
                 navigate('/');
             }
         })).catch(err => {

@@ -1,9 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import ReactLogo from '../../images/react-logo.png';
 
-const navbar = ({ currentUser }) => {
+const Navbar = ({ currentUser, setCurrentUser }) => {
+
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        setCurrentUser('');
+        navigate('/login');
+    }
+
     return (
         <div className='navbar-container'>
             <div className='links-container'>
@@ -16,8 +24,13 @@ const navbar = ({ currentUser }) => {
                     <Link to="/register">Register</Link>
                 </div>
             }
+            {currentUser &&
+                <div className="login-container">
+                    <button onClick={handleLogout} className="navButton">Logout</button>
+                </div>
+            }
         </div>
     )
 }
 
-export default navbar
+export default Navbar

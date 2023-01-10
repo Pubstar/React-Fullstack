@@ -1,8 +1,10 @@
 import React from 'react'
 import './register.css';
+import { useNavigate } from 'react-router-dom';
 
-const register = () => {
+const Register = ({ setCurrentUser }) => {
 
+    const navigate = useNavigate();
     let username, password;
 
     function handleRegister(e) {
@@ -12,7 +14,12 @@ const register = () => {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
-        })
+        }).then(res => res.json().then(response => {
+            if (response.result === true) {
+                setCurrentUser(response.user)
+                navigate('/');
+            }
+        }))
         e.target.username.value = "";
         e.target.password.value = "";
     }
@@ -41,4 +48,4 @@ const register = () => {
     )
 }
 
-export default register
+export default Register

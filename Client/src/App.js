@@ -14,7 +14,7 @@ const App = () => {
   // TODO make something relevant instead of fake users
   return (
     <>
-      <Navbar currentUser={currentUser} />
+      <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/register" element={<Register setCurrentUser={setCurrentUser} />} />
