@@ -28,6 +28,7 @@ const register = () => {
     return (
         <>
             <div className="container">
+                <h1>Register</h1>
                 <form onSubmit={handleRegister}>
                     <label htmlFor="username">Username</label>
                     <input onChange={handleUsername} type="text" name="username" id="username" />

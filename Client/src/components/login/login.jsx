@@ -2,7 +2,7 @@ import React from 'react';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setCurrentUser, currentUser }) => {
 
     let username, password;
     const navigate = useNavigate();
@@ -16,7 +16,8 @@ const Login = () => {
             body: JSON.stringify({ username, password })
         }).then(response => response.json().then(res => {
             if (res.username) {
-                console.log('login..')
+                setCurrentUser(res);
+                console.log(currentUser);
                 navigate('/');
             }
         })).catch(err => {
@@ -37,6 +38,7 @@ const Login = () => {
     return (
         <>
             <div className="container">
+                <h1>Login</h1>
                 <form onSubmit={handleLogin} action="" method="post">
                     <label htmlFor="username">Username</label>
                     <input onChange={handleUsername} type="text" name="username" id="username" />
