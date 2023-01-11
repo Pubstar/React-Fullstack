@@ -5,7 +5,7 @@ const Homepage = () => {
     const [serverData, setServerData] = useState();
 
     function fetchUsers() {
-        fetch(process.env.API_KEY + "/api/getUsers")
+        fetch(process.env.REACT_APP_API_KEY + "/api/getUsers")
             .then(response => response.json()
                 .then(data => setServerData(data)));
     }
@@ -19,6 +19,7 @@ const Homepage = () => {
                     <h3>{item.username}</h3>
                 </div>
             })}
+            {console.log(process.env.REACT_APP_API_KEY)}
         </div>
     )
 }
