@@ -10,7 +10,7 @@ const Login = ({ setCurrentUser, currentUser }) => {
     function handleLogin(e) {
         e.preventDefault();
 
-        fetch("/api/login", {
+        fetch(process.env.API_KEY + "/api/login", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })

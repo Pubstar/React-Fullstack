@@ -10,7 +10,7 @@ const Register = ({ setCurrentUser }) => {
     function handleRegister(e) {
         e.preventDefault();
 
-        fetch("/api/createUser", {
+        fetch(process.env.API_KEY + "/api/createUser", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })

@@ -5,7 +5,7 @@ const Homepage = () => {
     const [serverData, setServerData] = useState();
 
     function fetchUsers() {
-        fetch("/api/getUsers")
+        fetch(process.env.API_KEY + "/api/getUsers")
             .then(response => response.json()
                 .then(data => setServerData(data)));
     }
