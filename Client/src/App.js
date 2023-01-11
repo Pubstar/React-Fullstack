@@ -3,10 +3,10 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 //components
-import Navbar from './components/navbar/Navbar';
-import Homepage from './components/homepage/Homepage';
-import Register from './components/register/Register';
-import Login from './components/login/Login';
+import Navbar from './components/navbar/Navbar.jsx';
+import Homepage from './components/homepage/Homepage.jsx';
+import Register from './components/register/Register.jsx';
+import Login from './components/login/Login.jsx';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState();
