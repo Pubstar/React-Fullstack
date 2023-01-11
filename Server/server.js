@@ -10,9 +10,7 @@ mongoose.set('strictQuery', true);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(cors({
-    origin: 'https://react-fullstack-client.onrender.com/'
-}));
+app.use(cors());
 
 // connect to mongoDB
 mongoose.connect('mongodb+srv://pubstar:test123@react-fullstack.mijotck.mongodb.net/test')
