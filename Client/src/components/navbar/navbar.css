@@ -11,6 +11,7 @@ a:hover {
 }
 
 .navButton {
+    font: inherit;
     color: #FFC857;
     font-size: 22px;
     text-decoration: none;

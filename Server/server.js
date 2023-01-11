@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // connect to mongoDB
-mongoose.connect('mongodb://localhost:27017/FullstackDB')
+mongoose.connect('mongodb+srv://pubstar:test123@react-fullstack.mijotck.mongodb.net/test')
     .then(() => {
         console.log('Connected to DB!');
     })
