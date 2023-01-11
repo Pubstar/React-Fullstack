@@ -3,11 +3,16 @@ app = express();
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const userSchema = require('./UserSchema');
 mongoose.set('strictQuery', true);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors({
+    origin: 'https://react-fullstack-client.onrender.com/'
+}));
 
 // connect to mongoDB
 mongoose.connect('mongodb+srv://pubstar:test123@react-fullstack.mijotck.mongodb.net/test')
