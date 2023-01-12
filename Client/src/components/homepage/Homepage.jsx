@@ -19,7 +19,6 @@ const Homepage = () => {
                     <h3>{item.username}</h3>
                 </div>
             })}
-            {console.log(process.env.REACT_APP_API_KEY)}
         </div>
     )
 }

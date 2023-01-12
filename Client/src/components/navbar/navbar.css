@@ -51,6 +51,16 @@ a:hover {
 
 @media (max-width: 600px) {
     .navbar-container {
-        padding-inline: 50px;
+        padding-inline: 10px;
+    }
+
+    .login-container {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 350px) {
+    .navbar-container a {
+        font-size: 12px;
     }
 }
