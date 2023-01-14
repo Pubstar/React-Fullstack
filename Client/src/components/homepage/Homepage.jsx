@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './homepage.css';
 
+// TODO: ? Learn and implement tailwindcss
+
 const Homepage = () => {
     const [serverData, setServerData] = useState();
 
