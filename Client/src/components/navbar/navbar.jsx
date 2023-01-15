@@ -12,7 +12,7 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
     }
 
     return (
-        <div className='flex mb-8 bg-sky-800 justify-between items-center h-20 px-5 text-amber-300 text-xl'>
+        <div className='flex mb-8 bg-sky-800 justify-between items-center h-20 px-5 text-amber-300 text-xl shadow-2xl'>
             <div className='flex items-center gap-3'>
                 <img className='w-14' src={ReactLogo} alt="" />
                 <Link to="/">Home</Link>
