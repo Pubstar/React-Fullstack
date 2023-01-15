@@ -1,5 +1,4 @@
 import React from 'react'
-import './register.css';
 import { useNavigate } from 'react-router-dom';
 
 const Register = ({ setCurrentUser }) => {
@@ -34,14 +33,14 @@ const Register = ({ setCurrentUser }) => {
 
     return (
         <>
-            <div className="container">
-                <h1>Register</h1>
-                <form onSubmit={handleRegister}>
+            <div className='flex flex-col items-center'>
+                <h1 className='text-3xl mb-8'>Register</h1>
+                <form onSubmit={handleRegister} className='flex flex-col gap-2'>
                     <label htmlFor="username">Username</label>
-                    <input onChange={handleUsername} type="text" name="username" id="username" />
+                    <input className='p-1 bg-slate-200 rounded-xl' onChange={handleUsername} type="text" name="username" id="username" />
                     <label htmlFor="password">Password</label>
-                    <input onChange={handlePassword} type="password" name="password" id="password" />
-                    <button type="submit">Register</button>
+                    <input className='p-1 bg-slate-200 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
+                    <button type="submit" className=' bg-amber-300 py-2 px-5 rounded-xl'>Register</button>
                 </form>
             </div>
         </>

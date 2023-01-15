@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './homepage.css';
 
 // TODO: ? Learn and implement tailwindcss
 
@@ -13,9 +12,9 @@ const Homepage = () => {
     }
 
     return (
-        <div className='container'>
-            <h1>Display registered users</h1>
-            <button onClick={fetchUsers}>Fetch users from DB!</button>
+        <div className='flex flex-col items-center'>
+            <h1 className='text-3xl mb-8'>Display registered users</h1>
+            <button className=' bg-amber-300 py-2 px-5 rounded-xl' onClick={fetchUsers}>Fetch users from DB!</button>
             {serverData && serverData.map((item, idx) => {
                 return <div key={idx} style={{ padding: 10 + "px" }}>
                     <h3>{item.username}</h3>

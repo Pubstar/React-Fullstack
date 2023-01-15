@@ -1,5 +1,4 @@
 import React from 'react';
-import './login.css';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setCurrentUser, currentUser }) => {
@@ -36,14 +35,14 @@ const Login = ({ setCurrentUser, currentUser }) => {
 
     return (
         <>
-            <div className="container">
-                <h1>Login</h1>
-                <form onSubmit={handleLogin} action="" method="post">
+            <div className='flex flex-col items-center'>
+                <h1 className='text-3xl mb-8'>Login</h1>
+                <form onSubmit={handleLogin} action="" method="post" className='flex flex-col gap-2'>
                     <label htmlFor="username">Username</label>
-                    <input onChange={handleUsername} type="text" name="username" id="username" />
+                    <input className='p-1 bg-slate-200 rounded-xl' onChange={handleUsername} type="text" name="username" id="username" />
                     <label htmlFor="password">Password</label>
-                    <input onChange={handlePassword} type="password" name="password" id="password" />
-                    <button type="submit">Login</button>
+                    <input className='p-1 bg-slate-200 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
+                    <button type="submit" className=' bg-amber-300 py-2 px-5 rounded-xl'>Login</button>
                 </form>
             </div>
         </>
