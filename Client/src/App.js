@@ -13,7 +13,7 @@ const App = () => {
   // Main page
   // TODO make something relevant instead of fake users
   return (
-    <div className='h-screen'>
+    <div className='h-screen bg-blue-100'>
       <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Routes>
         <Route path="/" element={<Homepage />} />

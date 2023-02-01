@@ -39,9 +39,9 @@ const Login = ({ setCurrentUser, currentUser }) => {
                 <h1 className='text-3xl mb-8'>Login</h1>
                 <form onSubmit={handleLogin} action="" method="post" className='flex flex-col gap-2'>
                     <label htmlFor="username">Username</label>
-                    <input required className='p-1 bg-slate-200 rounded-xl' onChange={handleUsername} type="text" name="username" id="username" />
+                    <input required className='p-1 rounded-xl' onChange={handleUsername} type="text" name="username" id="username" />
                     <label htmlFor="password">Password</label>
-                    <input required className='p-1 bg-slate-200 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
+                    <input required className='p-1 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
                     <button type="submit" className=' bg-amber-300 py-2 px-5 rounded-xl hover:bg-amber-200'>Login</button>
                 </form>
             </div>
