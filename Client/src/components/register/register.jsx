@@ -16,17 +16,16 @@ const Register = ({ setCurrentUser }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         }).then(res => res.json().then(response => {
+            setIsLoading(false);
             if (response.result === true) {
-                setIsLoading(false);
                 setCurrentUser(response.user)
                 navigate('/');
             } else if (response.result === false) {
-                setIsLoading(false);
                 document.getElementById('error-text').style.visibility = 'visible';
             }
         })).catch(err => {
-            console.log(err);
             setIsLoading(false);
+            console.log(err);
             document.getElementById('error-text').style.visibility = 'visible';
         })
         e.target.username.value = "";

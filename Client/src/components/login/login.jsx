@@ -14,17 +14,19 @@ const Login = ({ setCurrentUser, currentUser }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         }).then(response => response.json().then(res => {
+            setIsLoading(false);
+            if (res === "incorrect username or password") {
+                document.getElementById('error-text').style.visibility = 'visible';
+            }
             if (res.username) {
-                setIsLoading(false);
                 setCurrentUser(res);
                 navigate('/');
             } else {
                 document.getElementById('error-text').style.visibility = 'visible';
             }
-            setIsLoading(false);
         })).catch(err => {
-            console.log("No user found");
             setIsLoading(false);
+            console.log("No user found");
             document.getElementById('error-text').style.visibility = 'visible';
         })
         e.target.username.value = "";
