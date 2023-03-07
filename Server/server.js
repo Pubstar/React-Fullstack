@@ -36,14 +36,15 @@ app.post('/api/login', async (req, res) => {
             res.send(foundUser);
         }
     }
+    res.send('incorrect username or password');
 })
 
 app.post('/api/createUser', async (req, res) => {
     const { username, password } = req.body;
-    if (await User.findOne({ username })) return;
+    if (await User.findOne({ username })) return res.send({ "result": false, });
     const user = new User({ username, password: await bcrypt.hash(password, 10) });
     user.save((err) => {
-        if (err) return console.log(err);
+        if (err) return res.send({ "result": false });
         res.send({ "result": true, user });
         console.log('User saved to DB!');
     })

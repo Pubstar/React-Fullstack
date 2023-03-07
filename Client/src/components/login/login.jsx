@@ -18,9 +18,14 @@ const Login = ({ setCurrentUser, currentUser }) => {
                 setIsLoading(false);
                 setCurrentUser(res);
                 navigate('/');
+            } else {
+                document.getElementById('error-text').style.visibility = 'visible';
             }
+            setIsLoading(false);
         })).catch(err => {
             console.log("No user found");
+            setIsLoading(false);
+            document.getElementById('error-text').style.visibility = 'visible';
         })
         e.target.username.value = "";
         e.target.password.value = "";
@@ -45,6 +50,7 @@ const Login = ({ setCurrentUser, currentUser }) => {
                     <input required className='p-1 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
                     <button type="submit" className=' bg-amber-300 py-2 px-5 rounded-xl hover:bg-amber-200'>Login</button>
                 </form>}
+                <span id='error-text' className=' text-red-800 mt-4 invisible'>Wrong login information.</span>
             </div>
         </>
     )

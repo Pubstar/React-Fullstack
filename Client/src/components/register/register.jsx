@@ -20,8 +20,15 @@ const Register = ({ setCurrentUser }) => {
                 setIsLoading(false);
                 setCurrentUser(response.user)
                 navigate('/');
+            } else if (response.result === false) {
+                setIsLoading(false);
+                document.getElementById('error-text').style.visibility = 'visible';
             }
-        }))
+        })).catch(err => {
+            console.log(err);
+            setIsLoading(false);
+            document.getElementById('error-text').style.visibility = 'visible';
+        })
         e.target.username.value = "";
         e.target.password.value = "";
     }
@@ -45,6 +52,7 @@ const Register = ({ setCurrentUser }) => {
                     <input required className='p-1 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
                     <button type="submit" className='bg-amber-300 py-2 px-5 rounded-xl hover:bg-amber-200'>Register</button>
                 </form>}
+                <span id='error-text' className=' text-red-800 mt-4 invisible'>Wrong login information.</span>
             </div>
         </>
     )
