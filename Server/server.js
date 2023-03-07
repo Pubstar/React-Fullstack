@@ -35,6 +35,9 @@ app.post('/api/login', async (req, res) => {
         if (await bcrypt.compare(password, foundUser.password)) {
             res.send(foundUser);
         }
+        else {
+            res.send('incorrect username or password');
+        }
     } else {
         res.send('incorrect username or password');
     }
