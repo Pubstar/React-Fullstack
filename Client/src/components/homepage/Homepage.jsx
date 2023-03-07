@@ -2,17 +2,22 @@ import React, { useState } from 'react'
 
 const Homepage = () => {
     const [serverData, setServerData] = useState();
+    const [isLoading, setIsLoading] = useState(false);
 
     function fetchUsers() {
-        fetch(process.env.REACT_APP_API_KEY + "/api/getUsers")
+        setIsLoading(true);
+        fetch(process.env.REACT_APP_API_LINK + "/api/getUsers")
             .then(response => response.json()
-                .then(data => setServerData(data)));
+                .then(data => {
+                    setServerData(data)
+                    setIsLoading(false);
+                }));
     }
 
     return (
         <div className='flex flex-col items-center'>
             <h1 className='text-3xl mb-8'>Display registered users</h1>
-            <button className=' bg-amber-300 py-2 px-5 rounded-xl font-semibold hover:bg-amber-200' onClick={fetchUsers}>Fetch users from DB!</button>
+            {isLoading ? <span>Loading...</span> : <button className=' bg-amber-300 py-2 px-5 rounded-xl font-semibold hover:bg-amber-200' onClick={fetchUsers}>Fetch users from DB!</button>}
             {serverData &&
                 <div className=' my-8'>
                     <table className=' bg-white border-2 border-gray-500'>

@@ -1,20 +1,23 @@
-import React from 'react'
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Register = ({ setCurrentUser }) => {
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
     let username, password;
 
     function handleRegister(e) {
         e.preventDefault();
-
-        fetch(process.env.REACT_APP_API_KEY + "/api/createUser", {
+        setIsLoading(true);
+        fetch(process.env.REACT_APP_API_LINK + "/api/createUser", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         }).then(res => res.json().then(response => {
             if (response.result === true) {
+                setIsLoading(false);
                 setCurrentUser(response.user)
                 navigate('/');
             }
@@ -35,13 +38,13 @@ const Register = ({ setCurrentUser }) => {
         <>
             <div className='flex flex-col items-center'>
                 <h1 className='text-3xl mb-8'>Register</h1>
-                <form onSubmit={handleRegister} className='flex flex-col gap-2'>
+                {isLoading ? <span>Loading...</span> : <form onSubmit={handleRegister} className='flex flex-col gap-2'>
                     <label htmlFor="username">Username</label>
                     <input required className='p-1 rounded-xl' onChange={handleUsername} type="text" name="username" id="username" />
                     <label htmlFor="password">Password</label>
                     <input required className='p-1 rounded-xl' onChange={handlePassword} type="password" name="password" id="password" />
                     <button type="submit" className='bg-amber-300 py-2 px-5 rounded-xl hover:bg-amber-200'>Register</button>
-                </form>
+                </form>}
             </div>
         </>
     )
