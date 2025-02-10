@@ -24,7 +24,9 @@ mongoose.connect('mongodb+srv://pubstar:test123@react-fullstack.mijotck.mongodb.
 const User = mongoose.model('User', userSchema);
 
 app.get('/api/getUsers', async (req, res) => {
-    let users = await User.find();
+    let users = await User.find().catch((e) => {
+        res.send('Error fetching users.  - ' + e)
+    })
     res.send(users);
 })
 
