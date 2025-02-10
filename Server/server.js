@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // connect to mongoDB
-mongoose.connect('mongodb+srv://pubstar:test123@react-fullstack.mijotck.mongodb.net/test')
+mongoose.connect('mongodb+srv://pubstar:test123@@react-fullstack.mijotck.mongodb.net/?retryWrites=true&w=majority&appName=React-Fullstack')
     .then(() => {
         console.log('Connected to DB!');
     })
